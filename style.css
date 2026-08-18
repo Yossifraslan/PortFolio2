@@ -1430,3 +1430,396 @@ p {
   opacity: 0;
   transform: translateY(12px);
 }
+
+/* =========================================================
+   MANAGEMENT EXPERIENCE
+========================================================= */
+
+.management-experience {
+  border-top: 1px solid var(--border-light);
+}
+
+.management-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 35px;
+
+  padding: 45px 0;
+
+  border-bottom: 1px solid var(--border-light);
+
+  transition: all 0.3s ease;
+}
+
+.management-item:hover {
+  padding-left: 15px;
+}
+
+.management-number {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding-top: 8px;
+}
+
+.management-content {
+  max-width: 1000px;
+}
+
+.management-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.management-content h3 {
+  color: var(--white);
+  font-size: 31px;
+  margin-bottom: 8px;
+}
+
+.management-role {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.management-date {
+  color: var(--white-soft);
+  font-size: 12px;
+  white-space: nowrap;
+  padding-top: 8px;
+}
+
+.management-description {
+  max-width: 800px;
+  margin-top: 22px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
+
+.experience-achievements {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 80px;
+
+  margin-top: 100px;
+  padding-top: 60px;
+
+  border-top: 1px solid var(--border);
+}
+
+.achievement-heading h3 {
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.achievement-heading h3 span {
+  color: var(--gold);
+}
+
+.achievement-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 30px;
+}
+
+.achievement-item {
+  min-height: 100px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+
+  padding: 20px 0;
+
+  border-bottom: 1px solid var(--border-light);
+}
+
+.achievement-item span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding-top: 4px;
+}
+
+.achievement-item p {
+  color: var(--white-soft);
+  font-size: 14px;
+}
+
+/* =========================================================
+   MANAGEMENT EXPERIENCE - MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .management-item {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 35px 0;
+  }
+
+  .management-number {
+    padding-top: 0;
+  }
+
+  .management-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .management-content h3 {
+    font-size: 27px;
+  }
+
+  .management-date {
+    padding-top: 0;
+  }
+
+  .experience-achievements {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 70px;
+  }
+
+  .achievement-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   EVENTS / BOOKING EXPERIENCE
+========================================================= */
+
+.booking-experience {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 80px;
+
+  margin-top: 90px;
+  padding-top: 60px;
+
+  border-top: 1px solid var(--border);
+}
+
+.booking-heading h3 {
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.booking-heading h3 span {
+  color: var(--gold);
+}
+
+.booking-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.booking-item {
+  min-height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 25px;
+
+  border: 1px solid var(--border-light);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.booking-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.booking-item span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.booking-item h4 {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .booking-experience {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 70px;
+  }
+
+  .booking-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 90px;
+  align-items: start;
+}
+
+/* LEFT SIDE */
+
+.about-main {
+  max-width: 560px;
+}
+
+.about-label {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.about-main h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 1.05;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.about-main h3 span {
+  color: var(--gold);
+}
+
+.about-text {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.72;
+  margin-bottom: 20px;
+}
+
+/* RIGHT SIDE */
+
+.about-strengths {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.about-strength {
+  min-height: 190px;
+
+  padding: 28px;
+
+  border: 1px solid var(--border-light);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.about-strength:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.about-strength > span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.about-strength h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.about-strength p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.6;
+}
+
+/* VISION */
+
+.about-vision {
+  display: grid;
+  grid-template-columns: 0.35fr 1fr;
+
+  margin-top: 90px;
+  padding-top: 45px;
+
+  border-top: 1px solid var(--border-light);
+}
+
+.about-vision-label {
+  padding-top: 5px;
+}
+
+.about-vision-content {
+  max-width: 850px;
+}
+
+.about-vision-content p {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.45;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .about-strengths {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-vision {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-strengths {
+    grid-template-columns: 1fr;
+  }
+
+  .about-strength {
+    min-height: auto;
+    gap: 35px;
+  }
+
+  .about-vision {
+    margin-top: 60px;
+  }
+}
