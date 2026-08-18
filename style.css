@@ -138,6 +138,7 @@ p {
   background: rgba(11, 11, 11, 0.88);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .nav-container {
@@ -236,6 +237,7 @@ p {
 
 .hero {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
 
@@ -387,6 +389,7 @@ p {
   justify-content: flex-end;
 
   position: relative;
+  overflow: hidden;
 }
 
 .hero-card::before {
@@ -421,8 +424,23 @@ p {
   line-height: 1.4;
 }
 
+.hero-card .card-number,
+.hero-card .card-line,
+.hero-card p {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.hero-card.changing .card-number,
+.hero-card.changing .card-line,
+.hero-card.changing p {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
 /* =========================================================
-   ABOUT
+   OLD ABOUT GRID
 ========================================================= */
 
 .about-grid {
@@ -446,6 +464,118 @@ p {
 
 .about-details p {
   font-size: 16px;
+}
+
+/* =========================================================
+   IMPROVED ABOUT
+========================================================= */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.about-main {
+  max-width: 560px;
+}
+
+.about-label {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.about-main h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 1.05;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.about-main h3 span {
+  color: var(--gold);
+}
+
+.about-text {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.72;
+  margin-bottom: 20px;
+}
+
+.about-strengths {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.about-strength {
+  min-height: 190px;
+  padding: 28px;
+
+  border: 1px solid var(--border-light);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.about-strength:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  background: #141414;
+}
+
+.about-strength > span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.about-strength h4 {
+  color: var(--white);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.about-strength p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.6;
+}
+
+.about-vision {
+  display: grid;
+  grid-template-columns: 0.35fr 1fr;
+
+  margin-top: 90px;
+  padding-top: 45px;
+
+  border-top: 1px solid var(--border-light);
+}
+
+.about-vision-label {
+  padding-top: 5px;
+}
+
+.about-vision-content {
+  max-width: 850px;
+}
+
+.about-vision-content p {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.45;
 }
 
 /* =========================================================
@@ -492,6 +622,198 @@ p {
 .experience-card p {
   font-size: 14px;
   margin-bottom: 8px;
+}
+
+/* =========================================================
+   MANAGEMENT EXPERIENCE
+========================================================= */
+
+.management-experience {
+  border-top: 1px solid var(--border-light);
+}
+
+.management-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 35px;
+
+  padding: 45px 0;
+
+  border-bottom: 1px solid var(--border-light);
+
+  transition: all 0.3s ease;
+}
+
+.management-item:hover {
+  padding-left: 15px;
+}
+
+.management-number {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding-top: 8px;
+}
+
+.management-content {
+  max-width: 1000px;
+}
+
+.management-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.management-content h3 {
+  color: var(--white);
+  font-size: 31px;
+  margin-bottom: 8px;
+}
+
+.management-role {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.management-date {
+  color: var(--white-soft);
+  font-size: 12px;
+  white-space: nowrap;
+  padding-top: 8px;
+}
+
+.management-description {
+  max-width: 800px;
+  margin-top: 22px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
+
+.experience-achievements {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 80px;
+
+  margin-top: 100px;
+  padding-top: 60px;
+
+  border-top: 1px solid var(--border);
+}
+
+.achievement-heading h3 {
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.achievement-heading h3 span {
+  color: var(--gold);
+}
+
+.achievement-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 30px;
+}
+
+.achievement-item {
+  min-height: 100px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+
+  padding: 20px 0;
+
+  border-bottom: 1px solid var(--border-light);
+}
+
+.achievement-item span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding-top: 4px;
+}
+
+.achievement-item p {
+  color: var(--white-soft);
+  font-size: 14px;
+}
+
+/* =========================================================
+   EVENTS / BOOKING EXPERIENCE
+========================================================= */
+
+.booking-experience {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 80px;
+
+  margin-top: 90px;
+  padding-top: 60px;
+
+  border-top: 1px solid var(--border);
+}
+
+.booking-heading h3 {
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.booking-heading h3 span {
+  color: var(--gold);
+}
+
+.booking-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.booking-item {
+  min-height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 25px;
+
+  border: 1px solid var(--border-light);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.booking-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.booking-item span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.booking-item h4 {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 /* =========================================================
@@ -1026,6 +1348,32 @@ p {
   }
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar.scrolled {
+  background: rgba(8, 8, 8, 0.97);
+  border-bottom-color: rgba(201, 169, 110, 0.15);
+}
+
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
 /* =========================================================
    SELECTION
 ========================================================= */
@@ -1087,7 +1435,16 @@ p {
     font-size: clamp(80px, 15vw, 140px);
   }
 
-  .about-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
   .two-column-section,
   .emergency-content,
   .contact-grid {
@@ -1119,41 +1476,94 @@ p {
     gap: 35px;
   }
 
+  .experience-achievements {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .booking-experience {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
   .section {
     padding: 100px 0;
   }
 }
 
 /* =========================================================
-   MOBILE
+   MOBILE — 700px
 ========================================================= */
 
 @media (max-width: 700px) {
+  /* ---------- GLOBAL ---------- */
+
   .container,
   .nav-container,
   .hero-container {
-    width: min(100% - 36px, var(--max-width));
+    width: calc(100% - 36px);
+    max-width: none;
   }
 
+  .section {
+    padding: 75px 0;
+  }
+
+  .section-heading {
+    gap: 12px;
+    margin-bottom: 42px;
+  }
+
+  .section-number {
+    font-size: 9px;
+    padding-top: 4px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 13px;
+  }
+
+  h2 {
+    font-size: 40px;
+    letter-spacing: -1.5px;
+  }
+
+  .section-description {
+    font-size: 15px;
+  }
+
+  /* ---------- NAVIGATION ---------- */
+
   .navbar {
-    height: 72px;
+    height: 70px;
+  }
+
+  .nav-container {
+    width: calc(100% - 36px);
+  }
+
+  .logo {
+    font-size: 25px;
   }
 
   .nav-links {
     position: fixed;
-    top: 72px;
+    top: 70px;
     left: 0;
     width: 100%;
 
     background: rgba(11, 11, 11, 0.98);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
-    padding: 30px 25px;
+    padding: 28px 25px;
 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 22px;
+    gap: 21px;
 
     transform: translateY(-120%);
     transition: transform 0.35s ease;
@@ -1166,7 +1576,7 @@ p {
   }
 
   .nav-links a {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .menu-toggle {
@@ -1185,388 +1595,146 @@ p {
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  .section {
-    padding: 80px 0;
-  }
-
-  .section-heading {
-    gap: 15px;
-    margin-bottom: 45px;
-  }
-
-  .section-number {
-    font-size: 10px;
-  }
-
-  h2 {
-    font-size: 43px;
-  }
+  /* ---------- HERO ---------- */
 
   .hero {
     min-height: 100svh;
-    padding-top: 70px;
+    padding: 100px 0 60px;
+  }
+
+  .hero::before {
+    width: 400px;
+    height: 400px;
+    right: -250px;
+    top: 25%;
+  }
+
+  .hero::after {
+    width: 280px;
+    height: 280px;
+    right: -170px;
+    top: 34%;
+  }
+
+  .hero-container {
+    display: block;
   }
 
   .hero-content {
-    padding-top: 40px;
+    padding-top: 15px;
   }
 
   .hero h1 {
-    font-size: clamp(68px, 20vw, 105px);
+    font-size: clamp(65px, 19vw, 105px);
     letter-spacing: -5px;
+    line-height: 0.85;
+    margin-bottom: 30px;
   }
 
   .hero-role {
+    font-size: 12px;
     line-height: 2;
+    margin-bottom: 20px;
   }
 
   .hero-role span {
-    padding: 0 4px;
+    padding: 0 3px;
   }
 
   .hero-description {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.75;
+    max-width: 100%;
   }
 
   .hero-buttons {
     flex-direction: column;
     align-items: stretch;
+    gap: 10px;
+    margin-top: 30px;
   }
 
   .btn {
     width: 100%;
+    min-height: 50px;
   }
+
+  .hero-side {
+    display: none;
+  }
+
+  /* ---------- ABOUT ---------- */
 
   .about-grid {
-    gap: 40px;
+    gap: 35px;
   }
 
-  .about-intro .large-text {
-    font-size: 27px;
-  }
-
-  .experience-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .experience-card:last-child {
-    grid-column: auto;
-  }
-
-  .experience-card {
-    min-height: 280px;
-  }
-
-  .platforms-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .platform-item {
-    min-height: 130px;
-  }
-
-  .platform-item h3 {
-    font-size: 19px;
-  }
-
-  .business-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .business-item {
-    min-height: 120px;
-  }
-
-  .skill-columns {
-    grid-template-columns: 1fr;
-    gap: 45px;
-  }
-
-  .education-card {
-    padding: 30px;
-  }
-
-  .education-card h3 {
-    font-size: 24px;
-  }
-
-  .availability-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .availability-card {
-    min-height: 220px;
-  }
-
-  .two-column-section {
-    gap: 45px;
-  }
-
-  .event-availability {
-    margin-top: 65px;
-  }
-
-  .event-availability h3 {
-    font-size: 24px;
-  }
-
-  .emergency-list {
-    grid-template-columns: 1fr;
-  }
-
-  .objective-section {
-    padding: 100px 0;
-  }
-
-  .objective-content h2 {
-    font-size: 48px;
-  }
-
-  .contact-grid {
-    gap: 55px;
-  }
-
-  .contact-intro h2 {
-    font-size: 50px;
-  }
-
-  .footer-container {
+  .about-layout {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 420px) {
-  .hero h1 {
-    font-size: 65px;
+    gap: 45px;
   }
 
-  h2 {
+  .about-main {
+    max-width: 100%;
+  }
+
+  .about-main h3 {
     font-size: 38px;
+    margin-bottom: 22px;
   }
 
-  .platforms-grid {
+  .about-text {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .about-strengths {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .about-strength {
+    min-height: 165px;
+    padding: 20px;
+  }
+
+  .about-strength > span {
+    font-size: 9px;
+  }
+
+  .about-strength h4 {
+    font-size: 17px;
+  }
+
+  .about-strength p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .about-vision {
     grid-template-columns: 1fr;
+    gap: 18px;
+
+    margin-top: 55px;
+    padding-top: 30px;
   }
 
-  .section-heading {
-    flex-direction: column;
-    gap: 8px;
+  .about-vision-content p {
+    font-size: 24px;
+    line-height: 1.4;
   }
 
-  .hero-role {
-    font-size: 13px;
-  }
+  /* ---------- MANAGEMENT ---------- */
 
-  .hero-card {
-    width: 100%;
-  }
-}
-
-/* =========================================================
-   JAVASCRIPT REVEAL ANIMATION
-========================================================= */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
-}
-
-.reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.navbar.scrolled {
-  background: rgba(8, 8, 8, 0.97);
-  border-bottom-color: rgba(201, 169, 110, 0.15);
-}
-
-.nav-links a.active {
-  color: var(--gold);
-}
-
-.nav-links a.active::after {
-  width: 100%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-/* =========================================================
-   HERO ROTATING CARD
-========================================================= */
-
-.hero-card {
-  overflow: hidden;
-}
-
-.hero-card .card-number,
-.hero-card .card-line,
-.hero-card p {
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-}
-
-.hero-card.changing .card-number,
-.hero-card.changing .card-line,
-.hero-card.changing p {
-  opacity: 0;
-  transform: translateY(12px);
-}
-
-/* =========================================================
-   MANAGEMENT EXPERIENCE
-========================================================= */
-
-.management-experience {
-  border-top: 1px solid var(--border-light);
-}
-
-.management-item {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 35px;
-
-  padding: 45px 0;
-
-  border-bottom: 1px solid var(--border-light);
-
-  transition: all 0.3s ease;
-}
-
-.management-item:hover {
-  padding-left: 15px;
-}
-
-.management-number {
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  padding-top: 8px;
-}
-
-.management-content {
-  max-width: 1000px;
-}
-
-.management-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.management-content h3 {
-  color: var(--white);
-  font-size: 31px;
-  margin-bottom: 8px;
-}
-
-.management-role {
-  color: var(--gold);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.management-date {
-  color: var(--white-soft);
-  font-size: 12px;
-  white-space: nowrap;
-  padding-top: 8px;
-}
-
-.management-description {
-  max-width: 800px;
-  margin-top: 22px;
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-/* =========================================================
-   ACHIEVEMENTS
-========================================================= */
-
-.experience-achievements {
-  display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
-  gap: 80px;
-
-  margin-top: 100px;
-  padding-top: 60px;
-
-  border-top: 1px solid var(--border);
-}
-
-.achievement-heading h3 {
-  color: var(--white);
-  font-family: "Playfair Display", serif;
-  font-size: 38px;
-  line-height: 1.2;
-}
-
-.achievement-heading h3 span {
-  color: var(--gold);
-}
-
-.achievement-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 30px;
-}
-
-.achievement-item {
-  min-height: 100px;
-
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-
-  padding: 20px 0;
-
-  border-bottom: 1px solid var(--border-light);
-}
-
-.achievement-item span {
-  color: var(--gold);
-  font-size: 11px;
-  letter-spacing: 2px;
-  padding-top: 4px;
-}
-
-.achievement-item p {
-  color: var(--white-soft);
-  font-size: 14px;
-}
-
-/* =========================================================
-   MANAGEMENT EXPERIENCE - MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
   .management-item {
     grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 35px 0;
+    gap: 12px;
+    padding: 32px 0;
+  }
+
+  .management-item:hover {
+    padding-left: 0;
   }
 
   .management-number {
@@ -1575,251 +1743,457 @@ p {
 
   .management-top {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
   .management-content h3 {
-    font-size: 27px;
+    font-size: 26px;
+  }
+
+  .management-role {
+    font-size: 10px;
   }
 
   .management-date {
+    font-size: 11px;
     padding-top: 0;
   }
 
+  .management-description {
+    font-size: 13px;
+    line-height: 1.75;
+    margin-top: 16px;
+  }
+
+  /* ---------- ACHIEVEMENTS ---------- */
+
   .experience-achievements {
     grid-template-columns: 1fr;
-    gap: 40px;
-    margin-top: 70px;
+    gap: 35px;
+    margin-top: 65px;
+    padding-top: 40px;
+  }
+
+  .achievement-heading h3 {
+    font-size: 31px;
   }
 
   .achievement-list {
     grid-template-columns: 1fr;
   }
-}
-/* =========================================================
-   EVENTS / BOOKING EXPERIENCE
-========================================================= */
 
-.booking-experience {
-  display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
-  gap: 80px;
+  .achievement-item {
+    min-height: auto;
+    padding: 18px 0;
+  }
 
-  margin-top: 90px;
-  padding-top: 60px;
+  .achievement-item p {
+    font-size: 13px;
+  }
 
-  border-top: 1px solid var(--border);
-}
+  /* ---------- BOOKING / EVENTS ---------- */
 
-.booking-heading h3 {
-  color: var(--white);
-  font-family: "Playfair Display", serif;
-  font-size: 38px;
-  line-height: 1.2;
-}
-
-.booking-heading h3 span {
-  color: var(--gold);
-}
-
-.booking-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.booking-item {
-  min-height: 150px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  padding: 25px;
-
-  border: 1px solid var(--border-light);
-
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.booking-item:hover {
-  transform: translateY(-5px);
-  border-color: var(--gold);
-}
-
-.booking-item span {
-  color: var(--gold);
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-.booking-item h4 {
-  color: var(--white);
-  font-size: 18px;
-  font-weight: 600;
-}
-
-/* MOBILE */
-
-@media (max-width: 700px) {
   .booking-experience {
     grid-template-columns: 1fr;
-    gap: 40px;
-    margin-top: 70px;
+    gap: 35px;
+    margin-top: 65px;
+    padding-top: 40px;
+  }
+
+  .booking-heading h3 {
+    font-size: 31px;
   }
 
   .booking-list {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
-}
-/* =========================================================
-   ABOUT SECTION
-========================================================= */
 
-.about-layout {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 90px;
-  align-items: start;
-}
+  .booking-item {
+    min-height: 125px;
+    padding: 20px;
+  }
 
-/* LEFT SIDE */
+  /* ---------- PLATFORMS ---------- */
 
-.about-main {
-  max-width: 560px;
-}
+  .platforms-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 
-.about-label {
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-}
+  .platform-item {
+    min-height: 125px;
+    padding: 18px;
+  }
 
-.about-main h3 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(38px, 4vw, 58px);
-  line-height: 1.05;
-  font-weight: 500;
-  margin-bottom: 30px;
-}
+  .platform-item h3 {
+    font-size: 18px;
+  }
 
-.about-main h3 span {
-  color: var(--gold);
-}
+  .platform-item span {
+    font-size: 9px;
+  }
 
-.about-text {
-  font-size: 16px;
-  line-height: 1.8;
-  opacity: 0.72;
-  margin-bottom: 20px;
-}
+  .skills-block,
+  .software-section {
+    margin-top: 55px;
+  }
 
-/* RIGHT SIDE */
+  .subheading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 
-.about-strengths {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
+  .tag-list {
+    gap: 7px;
+  }
 
-.about-strength {
-  min-height: 190px;
+  .tag-list span,
+  .education-tags span {
+    min-height: 35px;
+    padding: 0 12px;
+    font-size: 10px;
+  }
 
-  padding: 28px;
+  /* ---------- BUSINESS ---------- */
 
-  border: 1px solid var(--border-light);
+  .business-grid {
+    grid-template-columns: 1fr;
+  }
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  .business-item {
+    min-height: 105px;
+    padding: 20px;
+  }
 
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    background 0.3s ease;
-}
+  .business-item h3 {
+    font-size: 19px;
+  }
 
-.about-strength:hover {
-  transform: translateY(-5px);
-  border-color: var(--gold);
-}
+  /* ---------- SKILLS ---------- */
 
-.about-strength > span {
-  color: var(--gold);
-  font-size: 11px;
-  letter-spacing: 2px;
-}
+  .skill-columns {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 30px;
+  }
 
-.about-strength h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
+  .skill-column h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
 
-.about-strength p {
-  font-size: 14px;
-  line-height: 1.7;
-  opacity: 0.6;
-}
+  .skill-column ul {
+    gap: 10px;
+  }
 
-/* VISION */
+  .skill-column li {
+    font-size: 13px;
+    padding-bottom: 10px;
+  }
 
-.about-vision {
-  display: grid;
-  grid-template-columns: 0.35fr 1fr;
+  /* ---------- EDUCATION ---------- */
 
-  margin-top: 90px;
-  padding-top: 45px;
+  .education-card {
+    padding: 25px 20px;
+  }
 
-  border-top: 1px solid var(--border-light);
-}
+  .education-school {
+    font-size: 10px;
+    line-height: 1.6;
+  }
 
-.about-vision-label {
-  padding-top: 5px;
-}
+  .education-card h3 {
+    font-size: 22px;
+  }
 
-.about-vision-content {
-  max-width: 850px;
-}
+  .education-divider {
+    margin: 30px 0;
+  }
 
-.about-vision-content p {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(24px, 3vw, 36px);
-  line-height: 1.45;
-}
+  .education-card h4 {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
 
-/* MOBILE */
+  .education-support {
+    margin-top: 60px;
+  }
 
-@media (max-width: 850px) {
-  .about-layout {
+  .education-support h3 {
+    font-size: 34px;
+  }
+
+  .education-support p:not(.eyebrow) {
+    font-size: 14px;
+  }
+
+  /* ---------- AVAILABILITY ---------- */
+
+  .availability-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .availability-card {
+    min-height: 190px;
+    padding: 24px;
+  }
+
+  .availability-card h3 {
+    font-size: 22px;
+  }
+
+  .availability-card p {
+    font-size: 13px;
+  }
+
+  /* ---------- TRAVEL ---------- */
+
+  .two-column-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .two-column-section h2 {
+    max-width: 100%;
+  }
+
+  .two-column-section p {
+    font-size: 14px;
+  }
+
+  .gold-list {
+    gap: 10px;
+  }
+
+  .gold-list li {
+    font-size: 13px;
+  }
+
+  .event-availability {
+    margin-top: 60px;
+    padding: 35px 0;
+  }
+
+  .event-availability h3 {
+    font-size: 23px;
+    line-height: 1.4;
+  }
+
+  /* ---------- EMERGENCY ---------- */
+
+  .emergency-content {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .emergency-intro .large-text {
+    font-size: 25px;
+  }
+
+  .emergency-list {
+    grid-template-columns: 1fr;
+  }
+
+  .emergency-list div {
+    min-height: 70px;
+  }
+
+  .emergency-list p {
+    font-size: 13px;
+  }
+
+  /* ---------- OBJECTIVE ---------- */
+
+  .objective-section {
+    padding: 90px 0;
+  }
+
+  .objective-content h2 {
+    font-size: 44px;
+    margin-bottom: 35px;
+  }
+
+  .objective-content p:not(.eyebrow) {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* ---------- CONTACT ---------- */
+
+  .contact-section {
+    padding: 90px 0;
+  }
+
+  .contact-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
 
-  .about-strengths {
-    grid-template-columns: 1fr 1fr;
+  .contact-intro h2 {
+    font-size: 46px;
   }
 
-  .about-vision {
-    grid-template-columns: 1fr;
-    gap: 25px;
+  .contact-intro > p:last-child {
+    font-size: 14px;
+  }
+
+  .contact-item {
+    padding: 20px 0;
+  }
+
+  .contact-item a,
+  .contact-item p {
+    font-size: 16px;
+  }
+
+  .social-links {
+    gap: 8px;
+    margin-top: 25px;
+  }
+
+  .social-links a {
+    padding: 9px 12px;
+    font-size: 10px;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  .footer {
+    padding: 30px 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .footer p {
+    font-size: 10px;
   }
 }
 
-@media (max-width: 600px) {
+/* =========================================================
+   SMALL MOBILE — 420px
+========================================================= */
+
+@media (max-width: 420px) {
+  .container,
+  .nav-container,
+  .hero-container {
+    width: calc(100% - 28px);
+  }
+
+  .hero {
+    padding-top: 90px;
+  }
+
+  .hero h1 {
+    font-size: 64px;
+    letter-spacing: -4px;
+  }
+
+  .hero-role {
+    font-size: 11px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .about-main h3 {
+    font-size: 35px;
+  }
+
   .about-strengths {
     grid-template-columns: 1fr;
   }
 
   .about-strength {
-    min-height: auto;
-    gap: 35px;
+    min-height: 145px;
   }
 
-  .about-vision {
-    margin-top: 60px;
+  .platforms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-item {
+    min-height: 110px;
+  }
+
+  .management-content h3 {
+    font-size: 24px;
+  }
+
+  .achievement-heading h3,
+  .booking-heading h3 {
+    font-size: 28px;
+  }
+
+  .education-card h3 {
+    font-size: 20px;
+  }
+
+  .objective-content h2 {
+    font-size: 39px;
+  }
+
+  .contact-intro h2 {
+    font-size: 40px;
+  }
+}
+
+/* =========================================================
+   EXTRA SMALL DEVICES
+========================================================= */
+
+@media (max-width: 350px) {
+  .container,
+  .nav-container,
+  .hero-container {
+    width: calc(100% - 24px);
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  .hero-role {
+    font-size: 10px;
+  }
+
+  .about-main h3 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .section,
+  .hero-content,
+  .hero-side {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
   }
 }
